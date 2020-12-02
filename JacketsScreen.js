@@ -5,7 +5,7 @@ import { AntDesign } from '@expo/vector-icons';
 
 const JacketsScreen = () => {
     jackets = [
-        { image: require('./assets/pinkJacket.png'), name: 'Bike Jacket Softshell Warm', rating: ,price: '$99', },
+        { image: require('./assets/pinkJacket.png'), name: 'Bike Jacket Softshell Warm', price: '$99', },
         { image: require('./assets/blueJacket.png'), name: 'Pink Hoody Merino', price: '$80' },
         { image: require('./assets/blackJacket.png'), name: 'Hooded Jacket Classic', price: '$140' },
         { image: require('./assets/creamJacket.png'), name: 'Red Woman Jacket', price: '$115' },
