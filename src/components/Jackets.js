@@ -3,11 +3,12 @@ import { StyleSheet, Text, View, Image, } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Rating } from 'react-native-ratings'
 
-export default function jackets({ name, price, image }) {
+export default function jackets({ name, price, image, navigation }) {
   return (
     <TouchableOpacity  style={styles.skip} onPress={() => {
-      navigation.navigate('JacketsScreen')
-    }} style={styles.container}>
+      navigation.navigate('JacketDetails',{name, price, image })
+    }}
+     style={styles.container}>
 
       <View style={styles.details}>
         <Image source={image} style={styles.image} />
@@ -24,7 +25,6 @@ export default function jackets({ name, price, image }) {
           <Text style={styles.price}>{price}</Text>
         </View>
       </View>
-
     </TouchableOpacity>
   );
 }

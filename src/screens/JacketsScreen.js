@@ -1,16 +1,16 @@
 import React from 'react';
 import { StyleSheet, FlatList, View, TextInput, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Jackets from "./components/Jackets"
+import Jackets from "../components/Jackets"
 import { AntDesign } from '@expo/vector-icons';
 
 const JacketsScreen = ({navigation}) => {
     jackets = [
-        { image: require('./assets/pinkJacket.png'), name: 'Bike Jacket Softshell Warm', price: '$99', },
-        { image: require('./assets/blueJacket.png'), name: 'Pink Hoody Merino', price: '$80' },
-        { image: require('./assets/blackJacket.png'), name: 'Hooded Jacket Classic', price: '$140' },
-        { image: require('./assets/creamJacket.png'), name: 'Red Woman Jacket', price: '$115' },
-        { image: require('./assets/pinkJacket.png'), name: 'Bike Jacket Softshell Warm', price: '$99', },
+        { image: require('../../assets/pinkJacket.png'), name: 'Bike Jacket Softshell Warm', price: '$99', },
+        { image: require('../../assets/blueJacket.png'), name: 'Pink Hoody Merino', price: '$80' },
+        { image: require('../../assets/blackJacket.png'), name: 'Hooded Jacket Classic', price: '$140' },
+        { image: require('../../assets/creamJacket.png'), name: 'Red Woman Jacket', price: '$115' },
+        { image: require('../../assets/pinkJacket.png'), name: 'Bike Jacket Softshell Warm', price: '$99', },
     ]
     return (
         <View style={styles.mainContainer}>
@@ -34,9 +34,7 @@ const JacketsScreen = ({navigation}) => {
                 <FlatList
                     data={jackets}
                     renderItem={({ item }) => {
-                        return <TouchableOpacity style={styles.skip} onPress={() => {
-                            navigation.navigate('RedJacket')
-                          }} ><Jackets name={item.name} price={item.price} image={item.image} /> </TouchableOpacity>
+                        return <Jackets name={item.name} price={item.price} image={item.image} navigation={navigation} />
                     }}
                     keyExtractor={(item) => item.number}
                 />
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
     },
     arrowLeft:{
         marginLeft:15,
-        backgroundColor: "#f7f5f2",
+        backgroundColor: "white",
         borderRadius: 15,
         height: 25,
         width: 25,
@@ -72,7 +70,7 @@ const styles = StyleSheet.create({
     },
 
     shoppingCart: {
-        backgroundColor: "#f7f5f2",
+        backgroundColor: "white",
         marginTop:5,
         marginLeft: 250,
         borderRadius: 15,

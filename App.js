@@ -1,11 +1,10 @@
 import React from 'react';
-import {StyleSheet, View,} from 'react-native';
+import {StyleSheet, View,Text} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack'
 
  
-import Jackets from './components/Jackets';
-import RedJacket from './src/screens/RedJacket';
+import JacketDetails from './src/screens/JacketDetails';
 import JacketsScreen from './src/screens/JacketsScreen'                
 
 const Stack = createStackNavigator()
@@ -15,19 +14,20 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          title: "Red Jacket",
+          title: "Jacket Details",
           // headerStyle:{
           //   backgroundColor:"#3b31eb"
           // },
           headerTintColor: "#3b31eb",
           headerTitleAlign: "center",
-          headerRight: () => (<Text style={{ color: "#3b31eb", marginRight: 20 }}>Icons</Text>)
+          // headerRight: () => (<Text style={{ color: "#3b31eb", marginRight: 20 }}>Icons</Text>
+          // )
         }}
       >
         <Stack.Screen
           // options={{}}
-          name='Woman Jacket' component={JacketsScreen} />
-        <Stack.Screen name='Red Jacket' component={RedJacket} />
+          name='Jackets' component={JacketsScreen} />
+        <Stack.Screen name='JacketDetails' component={JacketDetails} />
         
       </Stack.Navigator>
     </NavigationContainer>

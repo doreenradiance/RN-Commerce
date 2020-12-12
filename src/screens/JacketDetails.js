@@ -1,13 +1,15 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Button, } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { AntDesign, Entypo } from '@expo/vector-icons';
 import { Rating } from 'react-native-ratings'
+import { LinearGradient } from 'expo-linear-gradient';
 
 
-export default function RedJacket({ navigation }) {
+export default function JacketDetails({ route, navigation }) {
+    let jacket = route.params;
     return (
-        <View style={styles.mainContainer}>
+        <ScrollView style={styles.mainContainer}>
             <View style={styles.container}>
                 <View style={styles.icons}>
                     <View style={styles.shoppingCart}>
@@ -19,9 +21,9 @@ export default function RedJacket({ navigation }) {
                     </View>
                 </View>
 
-                <Image source={require('./assets/redJacket.jpg')} style={styles.image} />
-                
-                <Text style={styles.text1} > Red Woman Jacket</Text>
+                <Image source={jacket.image} style={styles.image} />
+
+                <Text style={styles.text1} >{jacket.name}</Text>
 
                 <View style={styles.ratingContainer}>
                     <Text>Review :</Text>
@@ -44,9 +46,14 @@ export default function RedJacket({ navigation }) {
                     distracted by the readable content of a page.
                 </Text>
 
-                <View style={styles.materialContainer}>
+                <LinearGradient
+                    style={styles.materialContainer}
+                    colors={['transparent', '#000000']}
+                    start={{ x: 0.5, y: 0.5 }}
+                    start={{ x: 1, y: 0.5 }}
+                >
                     <Text style={styles.material}>Material :91% polyester,9% ealstane</Text>
-                </View>
+                </LinearGradient>
 
 
                 <View style={styles.sizes}>
@@ -60,16 +67,17 @@ export default function RedJacket({ navigation }) {
                 <View style={styles.footer}>
                     <View style={styles.prices}>
                         <Text style={styles.amount}>Total Amount</Text>
-                        <Text style={styles.price}>$110</Text>
+                        <Text style={styles.price}>{jacket.price}</Text>
                     </View>
-                    <View style={styles.addToCartContainer}>
-                        <Button style={styles.addToCart} title="Add to Cart" />
-                    </View>
+
+                    <TouchableOpacity style={styles.addToCart}>
+                        <Text style={styles.cart}>Add to Cart</Text>
+                    </TouchableOpacity>
 
                 </View>
 
             </View>
-        </View>
+        </ScrollView>
     )
 }
 
@@ -103,7 +111,7 @@ const styles = StyleSheet.create({
     },
 
     shoppingCart: {
-        backgroundColor: "#e6d5c8",
+        backgroundColor: "white",
         borderRadius: 15,
         height: 30,
         width: 30,
@@ -112,7 +120,7 @@ const styles = StyleSheet.create({
     },
     heartOutlined: {
         marginTop: 10,
-        backgroundColor: "#e6d5c8",
+        backgroundColor: "white",
         borderRadius: 15,
         height: 30,
         width: 30,
@@ -132,8 +140,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#686fe8",
         borderRadius: 5,
         height: 5,
-        width: 50,
-        marginVertical: 30
+        width: 40,
+        marginVertical: 20
     },
 
     materialContainer: {
@@ -205,14 +213,20 @@ const styles = StyleSheet.create({
         marginRight: 10,
         backgroundColor: "#464feb",
         borderRadius: 5,
+        color:"white"
     },
     addToCart: {
         alignSelf: "center",
-        marginRight: 10
-        // backgroundColor: "#464feb",
-        // borderRadius: 5,
-
-
+        marginRight: 10,
+        backgroundColor: "#464feb",
+        borderRadius: 4,
+        height:30,
+        // width:100
+    },
+    cart:{
+        color:"white",
+        marginTop:4,
+        marginHorizontal:5
     }
 
 })
