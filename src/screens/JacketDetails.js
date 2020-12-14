@@ -48,7 +48,7 @@ export default function JacketDetails({ route, navigation }) {
 
                 <LinearGradient
                     style={styles.materialContainer}
-                    colors={['transparent', '#000000']}
+                    colors={['transparent', 'white']}
                     start={{ x: 0.5, y: 0.5 }}
                     start={{ x: 1, y: 0.5 }}
                 >
