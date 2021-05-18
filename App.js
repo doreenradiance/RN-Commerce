@@ -33,17 +33,6 @@ export default function App() {
     </NavigationContainer>
 
 
-    // <View style={styles.container}>
-    //   {/* <RedJacket/> */}
-    //   {/* <Jackets/> */}
-    //   <JacketsScreen/>
-    // </View>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-
-//   },
-// });
